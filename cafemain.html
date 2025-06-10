@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    @font-face {
+    font-family: 'Caveat';
+    src: url('./fonts/Caveat.ttf') format('truetype');
+    }
+    body {
+      background-image: url('table.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: 'Caveat', sans-serif;
+    }
+    .container {
+    position: relative;
+    width: 100vw;    /* 브라우저 너비의 80% */
+    height: 50vw;   /* 비율 유지 (예: 2:1) */
+    margin: auto;
+    background: rgba(255,255,255,0.05);
+      .icon {
+      position: absolute;
+      width: 7%;     /* 컨테이너 너비의 10% */
+      height: auto;   /* 비율 유지 */
+      cursor: grab;
+      transition: filter 0.2s;
+      }
+      .text {
+      position: absolute;
+      width: 20%;     /* 컨테이너 너비의 10% */
+      height: auto;   /* 비율 유지 */
+      font-size: 1.3vw;
+      transition: filter 0.2s;
+      left: 5.5%; top:81.5%;
+      }
+      .icon:active {
+      filter: brightness(0.7);
+      }
+.icon1 { left: 23%; top: 27%; }
+.icon2 { left: 73%; top: 50%; }
+.icon3 { left: 50%; top: 5%; }
+.icon4 { left: 27%; top: 80%; }
+.icon5 { left: 65%; top: 85%; }
+.icon6 { left: 90%; top: 2%; }
+    }
+    .dropzone {
+      position: absolute;
+      width: 27vw;     /* 컨테이너 너비의 18% */
+      height: 27vw;  /* 컨테이너 너비의 18% */
+     left: 49%;       /* 컨테이너 기준 중앙 */
+      top: 55%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .contact{
+      font-weight: bold;
+      font-size: 1.5vw;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <!--드롭 아이콘-->
+    <img src="donut.png" class="icon icon1 draggable"  
+    draggable="true" data-url="donut1.html" ondragstart="dragStart(event)">
+    <img src="piececake.png" class="icon icon2 draggable" 
+    draggable="true" data-url="cake1.html" ondragstart="dragStart(event)">
+    <img src="sandwich.png" class="icon icon3 draggable"
+    draggable="true" data-url="sandwich1.html" ondragstart="dragStart(event)">
+    <img src="cupcake.png" class="icon icon4 draggable" 
+    draggable="true" data-url="cupcake1.html" ondragstart="dragStart(event)">
+    <img src="croissant.png" class="icon icon5 draggable" 
+    draggable="true" data-url="croissant1.html" ondragstart="dragStart(event)">
+    <a href="index.html"> <img src="hotcoffee.png" class="icon icon6"></a>
+
+    <p class="text">MENU<br>⎯<br><span class="contact">Contact, Jinhee Park</span><br>
+    ☕️ <a href="mailto:ooohoo3si@gmail.com">ooohoo3si@gmail.com</a><br>
+    🫖 <a href="https://www.notion.so/Jinhee-Park-1fb3871d8e10807e80b7f63fa8bf3c79?source=copy_link">CV<a> / <a href="https://www.notion.so/Jinhee-Park-1f63871d8e108047bb1ee87f3fb6ce3b?source=copy_link">Portfolio</a><br>
+    🥛 <a href="https://www.linkedin.com/in/parkjinizz">Linkedin</a></br>
+    </p>
+  <!-- 드롭존 -->
+  <div class="dropzone" 
+    ondragover="allowDrop(event)" 
+    ondragleave="leavedrop(event)"
+    ondrop="handleDrop(event)">
+    </div>
+<script>
+  let draggedUrl = null;
+
+  function dragStart(event) {
+    draggedUrl = event.target.dataset.url;
+    // 시각적 효과를 위해 드래그 중인 아이콘에 스타일을 줄 수도 있음
+  }
+
+  function allowDrop(event) {
+    event.preventDefault();
+    event.currentTarget.classList.add('active');
+  }
+
+  function leaveDrop(event) {
+    event.currentTarget.classList.remove('active');
+  }
+
+  function handleDrop(event) {
+    event.preventDefault();
+    event.currentTarget.classList.remove('active');
+    if (draggedUrl) {
+      window.location.href = draggedUrl;
+    }
+  }
+</script>
+  </div>
+</body>
+</html>

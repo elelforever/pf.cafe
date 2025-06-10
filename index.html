@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    @font-face {
+    font-family: 'Caveat';
+    src: url('./fonts/Caveat.ttf') format('truetype');
+    }
+    body {
+      background-image: url('back1.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: 'Caveat', sans-serif;
+    }
+    .container {
+    position: relative;
+    width: 100vw;    /* 브라우저 너비의 80% */
+    height: 50vw;   /* 비율 유지 (예: 2:1) */
+    margin: auto;
+    background: rgba(255,255,255,0.05);
+      .icon {
+      position: absolute;
+      width: 9%;     /* 컨테이너 너비의 10% */
+      height: auto;   /* 비율 유지 */
+      cursor: grab;
+      transition: filter 0.2s;
+      }
+      .name{
+      font-size:2vw;;
+      font-weight: bold;
+    }
+.icon1 { left: 44.5%; top: 70%; }
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <a href="cafemain.html">
+        <img src="hotcoffee.png" class="icon icon1"> 
+        </a>
+      </div>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    @font-face {
+    font-family: 'Caveat';
+    src: url('./fonts/Caveat.ttf') format('truetype');
+    }
+    body {
+      background-image: url('sandwichback.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: 'Caveat', sans-serif;
+    }
+    .container {
+    position: relative;
+    width: 100vw;    /* 브라우저 너비의 80% */
+    height: 50vw;   /* 비율 유지 (예: 2:1) */
+    margin: auto;
+    background: rgba(255,255,255,0.05);
+    .icon {
+      position: absolute;
+      width: 7%;     /* 컨테이너 너비의 10% */
+      height: auto;   /* 비율 유지 */
+      cursor: grab;
+      transition: filter 0.2s;
+      }
+      .text {
+      position: absolute;
+      width: 20%;     /* 컨테이너 너비의 10% */
+      height: auto;   /* 비율 유지 */
+      font-size: 1.3vw;
+      transition: filter 0.2s;
+      left: 5.5%; top:81.5%;
+      }
+      .icon:active {
+      filter: brightness(0.7);
+      }
+.icon1 { left: 90%; top: 2%; }
+    }
+    .popup-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .popup-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    #popup {
+      display: none; /* 기본적으로 숨김 */
+    }
+    .bold{
+      font-size: x-large;
+      font-weight: bold;
+      font-style: italic;
+    }
+    .contact{
+      font-weight: bold;
+      font-size: 1.5vw;
+    }
+  </style>
+</head>
+<body>
+  <!-- 팝업 레이어 -->
+  <div id="popup" class="popup-overlay">
+    <div class="popup-content">
+      <!--업데이트 란-->
+      <p style=font-size:xxx-large><b>Leadership</b></p>
+      <p style="font-size: large; text-align: left;">
+        <span class="bold">Mentor</span> at High school student Mentoring program 'Hyuaro' (2022.02 - 2023.06)<br>
+        <span class="bold">Club Chief/Producer</span> at Musical club <a href="https://www.instagram.com/nanjang_cc_erica/">'Nanjang'</a> (2022.01 - 2022.12)<br>
+        <span class="bold">Vice leader of Design department</span> at College of Languages & Cultures Student Council (2022.01 - 2022.12)<br>
+        </p>
+        <!--End-->
+      <button id="closeBtn">close</button>
+    </div>
+  </div>
+  <div class="container">
+    <a href="cafemain.html"> <img src="hotcoffee.png" class="icon icon1"></a>
+    <p class="text">Receipt<br>⎯<br>
+      🥪 x1, sandwich<br>
+      ⎯<br>
+      <span class="contact">How was it taste?</span><br>
+      <a href="mailto:ooohoo3si@gmail.com">Leave the review for better service ✔︎</a>
+    </p>
+  </div>
+  <!-- 나머지 웹페이지 내용 -->
+  <script>
+    window.onload = function() {
+      document.getElementById('popup').style.display = 'flex'; // 페이지 로드 시 팝업 보이기
+    };
+
+    document.getElementById('closeBtn').onclick = function() {
+      document.getElementById('popup').style.display = 'none'; // 닫기 버튼 클릭 시 팝업 숨김
+    };
+
+    document.body.addEventListener('click', function(e) {
+  var popup = document.getElementById('popup');
+  // 팝업이 닫혀 있을 때만 다시 보이게
+  if (popup.style.display === 'none' || popup.style.display === '') {
+    popup.style.display = 'flex';
+  }
+});
+
+// 팝업 내부 클릭 시 body 클릭 이벤트가 동작하지 않도록
+document.querySelector('.popup-content').addEventListener('click', function(e) {
+  e.stopPropagation();
+  });
+  </script>
+</body>
+</html>
